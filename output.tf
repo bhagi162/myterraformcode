@@ -3,16 +3,8 @@
                begins with "module". The usage pattern is "module.MODULE NAME.OUTPUT NAME FROM MODULE"  */
 
 
-## an output value we want to extract from the child module
-# output "root_returning_child_module_output" {
-#   value = module.my_container.container_network_info       # module.MODULE NAME.OUTPUT NAME
-#   description = "ID of the docker image "                  # description of the output value
-# }
-##
-
-
-## update to point to the "batman" module
+# an output value we want to extract from the child module
 output "root_returning_child_module_output" {
-   value = module.batman.container_network_info       # module.MODULE NAME.OUTPUT NAME
-   description = "ID of the docker image "            # description of the output value
+   value = module.my_container.container_network_info       # module.MODULE NAME.OUTPUT NAME
+   description = "ID of the docker image "                  # description of the output value
 }
