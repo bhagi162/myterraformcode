@@ -11,6 +11,21 @@ terraform {
 }
 
 
+resource "docker_image" "simplegoservice" {
+  name         = "registry.gitlab.com/alta3/simplegoservice"
+  keep_locally = true      // keep image after "destroy"
+}
+
+
+resource "docker_container" "simplegoservice" {
+  image = docker_image.simplegoservice.image_id
+  name = "simple_service"
+  ports {
+    internal = 9876
+    external = 5432
+  }
+}
+
 
 # the "module" block is reaching for a prebuilt solution
 module "my_container" {
