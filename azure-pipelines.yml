@@ -36,6 +36,14 @@ steps:
     ENV_VARIABLE_NAME2: 42
     ENV_VARIABLE_NAME: "rzfeeser"
 
+# we can map secrets via the UI by clicking on "Variables" in the upper right corner of the Azure editor
+# variables are stored in 2056 encryption 
+# you still need to map variables in the env section
+- script:
+    echo $ENV_SECRET
+  env:
+    ENV_SECRET: $(MYSECRETTOKENORPASSWORD)   # you still need to "inject" the secret from azure into the the job environment
+
 # This would only necessary if we needed to select a specific version of Terraform
 #- task: TerraformInstaller@1
 #  inputs:
