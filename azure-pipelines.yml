@@ -29,12 +29,12 @@ steps:
 
 # Per YAML rules, unless it starts with a hypen "-", only indentation level matters
 # this is the same block as the one above
-- displayName: 'inject environmental variables into your job' 
+- script:
+    echo $ENV_VARIABLE_NAME $ENV_VARIABLE_NAME2
+  displayName: 'inject environmental variables into your job' 
   env:
     ENV_VARIABLE_NAME2: 42
     ENV_VARIABLE_NAME: "rzfeeser"
-  script:
-    echo $ENV_VARIABLE_NAME $ENV_VARIABLE_NAME2
 
 # This would only necessary if we needed to select a specific version of Terraform
 #- task: TerraformInstaller@1
