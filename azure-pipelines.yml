@@ -13,6 +13,12 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- task: TerraformCLI@1
+  inputs:
+    command: 'validate'
+    allowTelemetryCollection: true
+
+appendCommitMessageToRunName:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
