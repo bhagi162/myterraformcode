@@ -66,3 +66,8 @@ steps:
     command: 'apply'
     allowTelemetryCollection: true
   displayName: 'terraform apply - run configuration'
+
+- task: TerraformCLI@1
+  inputs:
+    command: 'destroy'
+    allowTelemetryCollection: true
