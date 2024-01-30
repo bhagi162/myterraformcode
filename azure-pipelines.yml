@@ -8,6 +8,11 @@
 trigger:
 - main
 
+# env may be mapped at a global or task level
+env:
+  ENV_VARIABLE_NAME: "rzfeeser"
+  ENV_VARIABLE_NAME2: 42
+
 pool:
   vmImage: ubuntu-latest
 
@@ -18,6 +23,8 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
+    echo $ENV_VARIABLE_NAME
+    echo #ENV_VARIABLE_NAME2
   displayName: 'YAML formatting allows running a multi-line script'
 
 # This would only necessary if we needed to select a specific version of Terraform
