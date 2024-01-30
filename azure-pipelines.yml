@@ -1,7 +1,8 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# Author: @RZFeeser
+# Introduction to Azure DevOp Pipelines for Terraform
+#
+# Resources:
+# Examples by Microsoft - https://aka.ms/yaml
 
 trigger:
 - main
@@ -13,12 +14,12 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-#appendCommitMessageToRunName:
-#- script: |
-#    echo Add other tasks to build, test, and deploy your project.
-#    echo See https://aka.ms/yaml
-#  displayName: 'Run a multi-line script'
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'YAML formatting allows running a multi-line script'
 
+# This would only necessary if we needed to select a specific version of Terraform
 #- task: TerraformInstaller@1
 #  inputs:
 #    terraformVersion: 'latest'
@@ -27,13 +28,16 @@ steps:
   inputs:
     command: 'init'
     allowTelemetryCollection: true
+  displayName: 'terraform init - install providers'
 
 - task: TerraformCLI@1
   inputs:
     command: 'validate'
     allowTelemetryCollection: true
+  displayName: 'terraform validate - ensure valid configuration'
 
 - task: TerraformCLI@1
   inputs:
     command: 'apply'
     allowTelemetryCollection: true
+  displayName: 'terraform apply - run configuration'
