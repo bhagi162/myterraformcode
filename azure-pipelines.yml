@@ -4,6 +4,7 @@
 # Resources:
 # Examples by Microsoft - https://aka.ms/yaml
 
+# anytime "main" branch is modified
 trigger:
 - main
 
